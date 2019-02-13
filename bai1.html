@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type = "text/javascript">
+			
+		function check(){
+				var vABC,vBCD,vCDA,vDAB;
+				var vAB,vBC,vCD,vDA;
+				var Xa = document.getElementById("xa").value;
+			
+				var Ya = document.getElementById("ya").value;
+			
+				var Xb = document.getElementById("xb").value;
+				
+				var Yb = document.getElementById("yb").value;
+				
+				var Xc = document.getElementById("xc").value;
+				
+				var Yc = document.getElementById("yc").value;
+			
+				var Xd = document.getElementById("xd").value;
+				
+				var Yd = document.getElementById("yd").value;
+			
+				vABC = (Xb - Xa)*(Yc - Yb) - (Yb - Ya)*(Xc - Xb);
+				vBCD = (Xc - Xb)*(Yd - Yc) - (Yc - Yb)*(Xd - Xc);
+				vCDA = (Xd - Xc)*(Ya - Yd) - (Yd - Yc)*(Xa - Xd);
+				vDAB = (Xa - Xd)*(Yb - Ya) - (Ya - Yd)*(Xb - Xa);
+				if(vABC > 0 && vBCD > 0 && vCDA > 0 && vDAB > 0){
+					alert("Tứ giác là tứ giác lồi");
+				}
+				else if(vABC < 0 && vBCD < 0 && vCDA < 0 && vDAB < 0){
+					alert("Tứ giác là tứ giác lồi");
+				}
+				else if(vABC == 0 || vBCD == 0 || vCDA == 0 || vDAB == 0){
+					alert("Không phải là tứ giác");
+				}
+				else alert("Tứ giác là tứ giác lõm");
+				}
+	</script>
+</head>
+<body>
+	<form id="formDemo">
+			<label for="point_A_x">Tọa độ x điểm A </label>
+			<input  id="xa"  name="xa" type="number"  required/>
+			<br/>
+            <label for="point_A_y">Tọa độ y điểm A </label>
+            <input  id="ya"  name="ya" type="number"  required/>
+            <br/>
+            <label for="point_B_x">Tọa độ x điểm B </label>
+			<input  id="xb"  name="xb" type="number"  required/>
+			<br/>
+            <label for="point_B_y">Tọa độ y điểm B </label>
+            <input  id="yb"  name="yb" type="number"  required/>
+            <br/>
+            <label for="point_C_x">Tọa độ x điểm C </label>
+			<input  id="xc"  name="xc" type="number"  required/>
+			<br/>
+            <label for="point_C_y">Tọa độ y điểm C </label>
+            <input  id="yc"  name="yc" type="number"  required/>
+            <br/>
+            <label for="point_D_x">Tọa độ x điểm D </label>
+			<input  id="xd"  name="xd" type="number"  required/>
+			<br/>
+            <label for="point_D_y">Tọa độ y điểm D </label>
+			<input  id="yd"  name="yd" type="number"  required/>
+            <br/>
+            <button id="submit" type="submit" onclick = "check()">Kiem tra</button>
+	</form>
+	<script type="text/javascript">
+		$("#formDemo").validate({
+				rules: {
+					xa: "required",
+					ya: "required",
+					xb: "required",
+					yb: "required",
+					xc: "required",
+					yc: "required",
+					xd: "required",
+					yd: "required"
+				},
+				messages: {
+					xa: "Vui lòng nhập trường này",
+					ya: "Vui lòng nhập trường này",
+					xb: "Vui lòng nhập trường này",
+					yb: "Vui lòng nhập trường này",
+					xc: "Vui lòng nhập trường này",
+					yc: "Vui lòng nhập trường này",
+					xd: "Vui lòng nhập trường này",
+					yd: "Vui lòng nhập trường này"
+				}
+			});
+	</script>
+</body>
